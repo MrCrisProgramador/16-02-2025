@@ -142,7 +142,7 @@ function startFloatingObjects() {
 }
 
 
-pero segun esto: function showCountdown() {
+function showCountdown() {
   const container = document.getElementById('countdown');
   let startParam = getURLParam('start');
   let eventParam = getURLParam('event');
