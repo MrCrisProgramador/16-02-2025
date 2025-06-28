@@ -142,45 +142,31 @@ function startFloatingObjects() {
 }
 
 
-function showCountdown() {
+pero segun esto: function showCountdown() {
   const container = document.getElementById('countdown');
   let startParam = getURLParam('start');
-  let startDate = startParam ? new Date(startParam + 'T00:00:00') : new Date('2025-02-16T00:00:00');
+  let eventParam = getURLParam('event');
+  let extraEventParam = getURLParam('extraevent');
+  let startDate = startParam ? new Date(startParam + 'T00:00:00') : new Date('2025-02-16T00:00:00'); 
+  let eventDate = eventParam ? new Date(eventParam + 'T00:00:00') : new Date('2025-07-16T00:00:00');
+  let extraEventDate = extraEventParam ? new Date(extraEventParam + 'T00:00:00') : new Date('2025-09-11T00:00:00');
 
   function update() {
     const now = new Date();
     let diff = now - startDate;
     let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-    // 🔄 Se mueven dentro para ser recalculadas en cada actualización
-    let eventParam = getURLParam('event');
-    let extraEventParam = getURLParam('extraevent');
-
-    let eventDate = eventParam ? new Date(eventParam + 'T00:00:00') : new Date('2025-07-16T00:00:00');
-    let extraEventDate = extraEventParam ? new Date(extraEventParam + 'T00:00:00') : new Date('2025-09-11T00:00:00');
-
-    // Evento principal
     let eventDiff = eventDate - now;
     let eventDays = Math.max(0, Math.floor(eventDiff / (1000 * 60 * 60 * 24)));
     let eventHours = Math.max(0, Math.floor((eventDiff / (1000 * 60 * 60)) % 24));
     let eventMinutes = Math.max(0, Math.floor((eventDiff / (1000 * 60)) % 60));
     let eventSeconds = Math.max(0, Math.floor((eventDiff / 1000) % 60));
 
-    // Evento extra
-    let extraDiff = extraEventDate - now;
-    let extraDays = Math.max(0, Math.floor(extraDiff / (1000 * 60 * 60 * 24)));
-    let extraHours = Math.max(0, Math.floor((extraDiff / (1000 * 60 * 60)) % 24));
-    let extraMinutes = Math.max(0, Math.floor((extraDiff / (1000 * 60)) % 60));
-    let extraSeconds = Math.max(0, Math.floor((extraDiff / 1000) % 60));
-
     container.innerHTML =
-      `Llevamos juntos: <b>${days}</b> días<br>` +
-      `Próximo mesario: <b>${eventDays}d ${eventHours}h ${eventMinutes}m ${eventSeconds}s</b><br>` +
-      `Kimetsu: <b>${extraDays}d ${extraHours}h ${extraMinutes}m ${extraSeconds}s</b>`;
-    
+      Llevamos juntos: <b>${days}</b> días<br> +
+      Nuestro proximo mesario: <b>${eventDays}d ${eventHours}h ${eventMinutes}m ${eventSeconds}s</b>y<br>+
+    Kimetsu: <b>${eventDays}d ${eventHours}h ${eventMinutes}m ${eventSeconds}s</b>;
     container.classList.add('visible');
   }
-
   update();
   setInterval(update, 1000);
 }
