@@ -162,14 +162,15 @@ function showCountdown() {
     let eventSeconds = Math.max(0, Math.floor((eventDiff / 1000) % 60));
 
     container.innerHTML =
-      Llevamos juntos: <b>${days}</b> días<br> +
-      Nuestro proximo mesario: <b>${eventDays}d ${eventHours}h ${eventMinutes}m ${eventSeconds}s</b>y<br>+
-    Kimetsu: <b>${eventDays}d ${eventHours}h ${eventMinutes}m ${eventSeconds}s</b>;
+      `Llevamos juntos: <b>${days}</b> días<br>` +
+      `Nuestro Próximo mesario: <b>${eventDays}d ${eventHours}h ${eventMinutes}m ${eventSeconds}s</b><br>` +
+      `Kimetsu: <b>${extraDays}d ${extraHours}h ${extraMinutes}m ${extraSeconds}s</b>`;
     container.classList.add('visible');
   }
   update();
   setInterval(update, 1000);
 }
+
 
 
 function playBackgroundMusic() {
