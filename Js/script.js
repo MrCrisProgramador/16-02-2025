@@ -163,7 +163,7 @@ function showCountdown() {
     container.innerHTML =
       `Llevamos juntos: <b>${days}</b> días<br>` +
       `Nuestro proximo mesario: <b>${eventDays}d ${eventHours}h ${eventMinutes}m ${eventSeconds}s</b>y<br>`+
-    `Kimetsu: <b>${eventDays}d ${eventHours}h ${eventMinutes}m ${eventSeconds}s</b>`;
+    `Kimetsu con mi niña: <b>${eventDays}d ${eventHours}h ${eventMinutes}m ${eventSeconds}s</b>`;
     container.classList.add('visible');
   }
   update();
