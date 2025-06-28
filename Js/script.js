@@ -160,6 +160,11 @@ function showCountdown() {
     let eventHours = Math.max(0, Math.floor((eventDiff / (1000 * 60 * 60)) % 24));
     let eventMinutes = Math.max(0, Math.floor((eventDiff / (1000 * 60)) % 60));
     let eventSeconds = Math.max(0, Math.floor((eventDiff / 1000) % 60));
+    let extraDiff = extraEventDate - now;
+    let extraDays = Math.max(0, Math.floor(extraDiff / (1000 * 60 * 60 * 24)));
+    let extraHours = Math.max(0, Math.floor((extraDiff / (1000 * 60 * 60)) % 24));
+    let extraMinutes = Math.max(0, Math.floor((extraDiff / (1000 * 60)) % 60));
+    let extraSeconds = Math.max(0, Math.floor((extraDiff / 1000) % 60));
 
     container.innerHTML =
       `Llevamos juntos: <b>${days}</b> días<br>` +
